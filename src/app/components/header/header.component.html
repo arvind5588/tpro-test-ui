@@ -5,4 +5,9 @@
     placeholder="search your tasks"
     [formControl]="searchControl"
   />
+
+  <div *ngIf="isLoggedIn()" class="mt-4">
+    <button (click)="logout()" class="px-4 py-2 bg-red-500 text-white rounded">Logout</button>
+  </div>
+
 </header>

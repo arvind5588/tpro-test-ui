@@ -5,6 +5,7 @@ import { HttpService } from '../../../services/http.service';
 import { PageTitleComponent } from '../../page-title/page-title.component';
 import { TodosListComponent } from '../../todos-list/todos-list.component';
 import { StateService } from '../../../services/state.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-all-task',
@@ -14,6 +15,12 @@ import { StateService } from '../../../services/state.service';
   styleUrl: './all-todos.component.scss',
 })
 export class AllTodosComponent {
+  constructor(private toastr: ToastrService) {}
+
+  showErrorToast(message: string) {
+    this.toastr.error(message, 'Error');
+  }
+
   newTodos = '';
   intialTodosList: any[] = [];
   todosList: any[] = [];
@@ -32,10 +39,14 @@ export class AllTodosComponent {
     this.getAllTodos();
   }
   addTodos() {
-    this.httpService.addTodos(this.newTodos).subscribe(() => {
-      this.newTodos = '';
-      this.getAllTodos();
-    });
+      this.httpService.addTodos(this.newTodos).subscribe(() => {
+        this.newTodos = '';
+        this.getAllTodos();
+      },
+      (error) => {
+        this.showErrorToast('Failed to create todo: ' + error.message);
+      }
+    );
   }
   getAllTodos() {
     this.httpService.getAllTodos().subscribe((result: any) => {
