@@ -1,0 +1,4 @@
+<app-page-title></app-page-title>
+<div class="flex flex-col mt-6">
+  <app-todos-list [todosList]="todosList" (complete)="onComplete($event)" (important)="onImportant($event)"></app-todos-list>
+</div>

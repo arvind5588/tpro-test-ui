@@ -1,0 +1,69 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "a title",
+      "views": 100
+    },
+    {
+      "id": "2",
+      "title": "another title",
+      "views": 200
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "text": "a comment about post 1",
+      "postId": "1"
+    },
+    {
+      "id": "2",
+      "text": "another comment about post 1",
+      "postId": "1"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "todos": [
+    {
+      "id": "4",
+      "title": "Sample Todo",
+      "description": "This is a sample",
+      "status": "active",
+      "important": true,
+      "completed": true,
+      "createdAt": "2024-04-20T20:16:31.938Z",
+      "updatedAt": "2024-04-20T20:16:31.940Z"
+    },
+    {
+      "id": "5",
+      "title": "Sample Todo1",
+      "description": "This is a sample2",
+      "status": "active",
+      "important": true,
+      "completed": true,
+      "createdAt": "2024-04-20T20:16:40.535Z",
+      "updatedAt": "2024-04-20T20:16:40.535Z"
+    },
+    {
+      "id": "c8eb",
+      "title": "fsds",
+      "important": true,
+      "completed": true
+    },
+    {
+      "id": "7b94",
+      "title": "My Nest Todos",
+      "important": true,
+      "completed": true
+    },
+    {
+      "id": "2b83",
+      "title": "inactive todos",
+      "important": true,
+      "completed": true
+    }
+  ]
+}
