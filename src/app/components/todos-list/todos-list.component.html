@@ -4,11 +4,14 @@
 <div
   class="bg-white w-full h-16 px-4 py-2 rounded shadow flex justify-between items-center mt-2 mb-2 pr-8"
 >
-  <p>
-    {{ todos.title }}
-  </p>
+  <div class="flex gap-4"> {{ todos.title }}
+    <!-- <p>{{ todos.createdAt }}</p> -->
+  </div>
+
   <div class="flex gap-4">
-    {{ todos.createdAt }}
+    <!-- <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" (click)="openEditDialog(todos)">Edit</button> -->
+    <span class="flex gap-4"></span>
+    <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" (click)="deleteTodo(todos.id)">Delete</button>
   </div>
 </div>
 }

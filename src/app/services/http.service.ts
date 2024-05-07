@@ -3,6 +3,7 @@ import { Injectable, inject } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root'
@@ -26,8 +27,7 @@ export class HttpService {
       catchError((error: HttpErrorResponse) => {
         if (error.status === 401) {
           console.error("Unauthorized error:", error.message);
-          alert("Unauthorized error:" + error.message);
-          // this.showErrorToast('Failed to create todo: ' + error.message);
+          Swal.fire('Unauthorized error',  error.message, 'error');
         }
         return throwError(error);
       })
@@ -38,5 +38,17 @@ export class HttpService {
   }
   updateTodos(todos:any){
     return this.httpClient.put(`${this.API_URL}todos/`+todos.id,todos)
+  }
+
+  deleteTodos(todosId:any){
+    return this.httpClient.delete(`${this.API_URL}todos/`+todosId).pipe(
+      catchError((error: HttpErrorResponse) => {
+        if (error.status === 401) {
+          console.error("Unauthorized error:", error.message);
+          Swal.fire('Unauthorized error',  error.message, 'error');
+        }
+        return throwError(error);
+      })
+    );
   }
 }

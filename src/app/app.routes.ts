@@ -10,6 +10,10 @@ export const routes: Routes = [
     component: AllTodosComponent,
   },
   {
+    path: 'todo',
+    component: AllTodosComponent,
+  },
+  {
     path: 'active',
     component: ActiveTodosComponent,
   },
